@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane fx:id="sudokuBoard" minHeight="0.0" minWidth="0.0" prefHeight="490.0" prefWidth="488.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="JavaFx.Controller2x2">
+               <children>
+                  <GridPane fx:id="grill00"  gridLinesVisible="true" layoutX="10.0" layoutY="14.0" prefHeight="213.0" prefWidth="227.0">
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="200.0" minWidth="10.0" prefWidth="130.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="152.0" minWidth="0.0" prefWidth="131.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints maxHeight="130.0" minHeight="10.0" prefHeight="109.0" vgrow="SOMETIMES" />
+                      <RowConstraints maxHeight="123.0" minHeight="0.0" prefHeight="113.0" vgrow="SOMETIMES" />
+                      <RowConstraints maxHeight="21.0" minHeight="0.0" prefHeight="0.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                  </GridPane>
+                  <GridPane fx:id="grill01" gridLinesVisible="true" layoutX="251.0" layoutY="14.0" prefHeight="213.0" prefWidth="227.0">
+                     <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="200.0" minWidth="10.0" prefWidth="132.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="152.0" minWidth="0.0" prefWidth="129.0" />
+                     </columnConstraints>
+                     <rowConstraints>
+                        <RowConstraints maxHeight="130.0" minHeight="10.0" prefHeight="109.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="123.0" minHeight="0.0" prefHeight="113.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="21.0" minHeight="0.0" prefHeight="0.0" vgrow="SOMETIMES" />
+                     </rowConstraints>
+                  </GridPane>
+                  <GridPane fx:id="grill10" gridLinesVisible="true" layoutX="10.0" layoutY="243.0" prefHeight="213.0" prefWidth="227.0">
+                     <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="200.0" minWidth="10.0" prefWidth="132.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="152.0" minWidth="0.0" prefWidth="129.0" />
+                     </columnConstraints>
+                     <rowConstraints>
+                        <RowConstraints maxHeight="130.0" minHeight="10.0" prefHeight="109.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="123.0" minHeight="0.0" prefHeight="113.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="21.0" minHeight="0.0" prefHeight="0.0" vgrow="SOMETIMES" />
+                     </rowConstraints>
+                  </GridPane>
+                  <GridPane fx:id="grill11" gridLinesVisible="true" layoutX="251.0" layoutY="243.0" prefHeight="213.0" prefWidth="227.0">
+                     <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="200.0" minWidth="10.0" prefWidth="132.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="152.0" minWidth="0.0" prefWidth="129.0" />
+                     </columnConstraints>
+                     <rowConstraints>
+                        <RowConstraints maxHeight="130.0" minHeight="10.0" prefHeight="109.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="123.0" minHeight="0.0" prefHeight="113.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="21.0" minHeight="0.0" prefHeight="0.0" vgrow="SOMETIMES" />
+                     </rowConstraints>
+                  </GridPane>
+               </children>
+</AnchorPane>
+
