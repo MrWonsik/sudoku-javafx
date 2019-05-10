@@ -166,11 +166,7 @@ public class MainController implements Initializable {
 
         newGame.getUsersGrill().showGrills();
         newGame.getMainGrill().showGrills();
-
-        if(!newGame.getUsersGrill().equals(newGame.getGrillToGame()))
-        {
-            newGame.setHint(newGame.getHint()-1);
-        }
+        newGame.setHint(newGame.getHint()-1);
 
         if(newGame.getHint() == 0)
         {
