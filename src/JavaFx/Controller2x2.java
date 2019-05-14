@@ -51,4 +51,9 @@ public class Controller2x2 {
     public void setGrill11(GridPane grill11) {
         this.grill11 = grill11;
     }
+
+    public GridPane[][] getGrills(){
+        GridPane[][] gridPanes = new GridPane[][] {{grill00, grill01}, {grill10, grill11}};
+        return gridPanes;
+    }
 }
