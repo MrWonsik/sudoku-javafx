@@ -5,7 +5,6 @@ package JavaFx;
 import java.net.URL;
 import java.util.ResourceBundle;
 import gameModel.Game;
-import gameModel.GameTime;
 import gameModel.Grill;
 import gameModel.MainGrill;
 import javafx.application.Platform;
@@ -22,8 +21,6 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
-
-import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 
@@ -42,33 +39,6 @@ public class MainController implements Initializable {
     private ChoiceBox levelChoiceBox = new ChoiceBox();
 
     @FXML
-    private GridPane grill00 = new GridPane();
-
-    @FXML
-    private GridPane grill01 = new GridPane();
-
-    @FXML
-    private GridPane grill02 = new GridPane();
-
-    @FXML
-    private GridPane grill10 = new GridPane();
-
-    @FXML
-    private GridPane grill11 = new GridPane();
-
-    @FXML
-    private GridPane grill12 = new GridPane();
-
-    @FXML
-    private GridPane grill20 = new GridPane();
-
-    @FXML
-    private GridPane grill21 = new GridPane();
-
-    @FXML
-    private GridPane grill22 = new GridPane();
-
-    @FXML
     private Button checkBtn = new Button();
 
     @FXML
@@ -82,7 +52,7 @@ public class MainController implements Initializable {
 
     private Game newGame;
     private int sizeOfGrid;
-    private GridPane[][] gridPanes = new GridPane[sizeOfGrid][sizeOfGrid];
+    private GridPane[][] gridPanes;
 
 
     @FXML
@@ -96,17 +66,22 @@ public class MainController implements Initializable {
         switch((String)grillSizeChoiceBox.getValue()){
             case("3x3"):
                 sizeOfGrid=3;
-                gridPanes = new GridPane[][] {{grill00, grill01, grill02}, {grill10, grill11, grill12}, {grill20, grill21, grill22}};
+                gridPanes = new GridPane[sizeOfGrid][sizeOfGrid];
+                FXMLLoader loader3x3 = new FXMLLoader(getClass().getResource("3x3.fxml"));
+                sudokuBoard.getChildren().setAll((AnchorPane)loader3x3.load());
+
+                Controller3x3 controller3x3 = loader3x3.getController();
+                gridPanes = controller3x3.getGrills();
                 break;
 
             case("2x2"):
                 sizeOfGrid=2;
-                /*AnchorPane size2x2 = new AnchorPane();
-                size2x2 = (AnchorPane) FXMLLoader.load(getClass().getResource("2x2.fxml"));
-                sudokuBoard.getChildren().add(size2x2);
-                Controller2x2 controller2x2 = new Controller2x2();
-                */
-                gridPanes = new GridPane[][] {{grill00, grill01}, {grill10, grill11}};
+                gridPanes = new GridPane[sizeOfGrid][sizeOfGrid];
+                FXMLLoader loader2x2 = new FXMLLoader(getClass().getResource("2x2.fxml"));
+                sudokuBoard.getChildren().setAll((AnchorPane)loader2x2.load());
+
+                Controller2x2 controller2x2 = loader2x2.getController();
+                gridPanes = controller2x2.getGrills();
                 break;
         }
 
@@ -142,13 +117,11 @@ public class MainController implements Initializable {
         disableAllTextField();
         hintBtn.setDisable(true);
 
-        newGame.getUsersGrill().showGrills();
-        newGame.getMainGrill().showGrills();
-
         if(newGame.checkWin())
         {
             statusLabel.setVisible(true);
             statusLabel.setTextFill(Color.GREEN);
+            statusLabel.setText("You WIN!");
             newGame.getGameTime().stopTime();
         }
         else
@@ -164,8 +137,6 @@ public class MainController implements Initializable {
 
         setGreenAndRedField();
 
-        newGame.getUsersGrill().showGrills();
-        newGame.getMainGrill().showGrills();
         newGame.setHint(newGame.getHint()-1);
 
         if(newGame.getHint() == 0)
@@ -374,6 +345,9 @@ public class MainController implements Initializable {
                             node.setDisable(true);
 
                             newGame.setGrillToGame(newGame.getUsersGrill());
+                        }
+                        else if(tableValidate[gridX*newGame.getSizeOfGrill()+i][gridY*newGame.getSizeOfGrill()+j] == 2){
+                            node.setStyle("-fx-control-inner-background: white");
                         }
                         j++;
                     }
