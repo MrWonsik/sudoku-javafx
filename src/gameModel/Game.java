@@ -120,32 +120,21 @@ public class Game {
                     for(int grillFieldY=0; grillFieldY<sizeOfGrill; grillFieldY++)
                     {
                         if(usersGrill.getGrills()[grillX][grillY].getGrillFields()[grillFieldX][grillFieldY].getNumber()
-                                != mainGrill.getGrills()[grillX][grillY].getGrillFields()[grillFieldX][grillFieldY].getNumber())
+                                == mainGrill.getGrills()[grillX][grillY].getGrillFields()[grillFieldX][grillFieldY].getNumber())
                         {
-                            if(usersGrill.getGrills()[grillX][grillY].getGrillFields()[grillFieldX][grillFieldY].getNumber() == 0)
-                            {
-                                tableValidate[grillX*sizeOfGrill+grillFieldX][grillY*sizeOfGrill+grillFieldY] = 2;
-                            }
-                            else
-                            {
-                                tableValidate[grillX*sizeOfGrill+grillFieldX][grillY*sizeOfGrill+grillFieldY] = 0;
-                                //System.out.println("Na Czerwono: GrillX: " + grillX + ", GrillY: " + grillY + ", GrillFieldX: " + grillFieldX + ", GrillFieldY: " + grillFieldY);
-                            }
-
+                            tableValidate[grillX*sizeOfGrill+grillFieldX][grillY*sizeOfGrill+grillFieldY] = 1;
                         }
-                        else {
-                            if (grillToGame.getGrills()[grillX][grillY].getGrillFields()[grillFieldX][grillFieldY].getNumber() != 0) {
-                                tableValidate[grillX*sizeOfGrill+grillFieldX][grillY*sizeOfGrill+grillFieldY] = 2;
-                            } else {
-                                tableValidate[grillX*sizeOfGrill+grillFieldX][grillY*sizeOfGrill+grillFieldY] = 1;
-                                //System.out.println("Na Zielono: GrillX: " + grillX + ", GrillY: " + grillY + ", GrillFieldX: " + grillFieldX + ", GrillFieldY: " + grillFieldY);
-                            }
+                        else if(usersGrill.getGrills()[grillX][grillY].getGrillFields()[grillFieldX][grillFieldY].getNumber() == 0) {
+                            tableValidate[grillX*sizeOfGrill+grillFieldX][grillY*sizeOfGrill+grillFieldY] = 2;
+                        }
+                        else
+                        {
+                            tableValidate[grillX*sizeOfGrill+grillFieldX][grillY*sizeOfGrill+grillFieldY] = 0;
                         }
                     }
                 }
             }
         }
-
         return tableValidate;
     }
 
