@@ -1,7 +1,5 @@
 package JavaFx;
 
-
-
 import java.net.URL;
 import java.util.ResourceBundle;
 import gameModel.Game;
@@ -67,7 +65,7 @@ public class MainController implements Initializable {
             case("3x3"):
                 sizeOfGrid=3;
                 gridPanes = new GridPane[sizeOfGrid][sizeOfGrid];
-                FXMLLoader loader3x3 = new FXMLLoader(getClass().getResource("3x3.fxml"));
+                FXMLLoader loader3x3 = new FXMLLoader(getClass().getResource("/3x3.fxml"));
                 sudokuBoard.getChildren().setAll((AnchorPane)loader3x3.load());
 
                 Controller3x3 controller3x3 = loader3x3.getController();
@@ -77,7 +75,7 @@ public class MainController implements Initializable {
             case("2x2"):
                 sizeOfGrid=2;
                 gridPanes = new GridPane[sizeOfGrid][sizeOfGrid];
-                FXMLLoader loader2x2 = new FXMLLoader(getClass().getResource("2x2.fxml"));
+                FXMLLoader loader2x2 = new FXMLLoader(getClass().getResource("/2x2.fxml"));
                 sudokuBoard.getChildren().setAll((AnchorPane)loader2x2.load());
 
                 Controller2x2 controller2x2 = loader2x2.getController();
